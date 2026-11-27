@@ -1,89 +1,160 @@
-# MediRozah Hospital
-## Web Application Security Assessment & Penetration Testing
+# MEDIROZAH HOSPITAL
+## Web Application Security Assessment & Penetration Testing Report
 
-![Status](https://img.shields.io/badge/Project-In%20Progress-orange)
-![Training](https://img.shields.io/badge/NETWORKWALKS-B084-blue)
-![Platform](https://img.shields.io/badge/Platform-Kali%20Linux-purple)
+### Project Information
 
-### Project Overview
-
-This repository documents my Week 4 cybersecurity practical project as part of the NETWORKWALKS Batch B084 training programme.
-
-The project focuses on web application security assessment, reconnaissance, vulnerability assessment, potential data exposure, and professional security reporting.
-
-### Project Objectives
-
-- Understand web application reconnaissance.
-- Identify potential security weaknesses.
-- Examine authentication and access control.
-- Analyse PDF document properties and metadata.
-- Understand risks associated with sensitive data exposure.
-- Document findings and recommend remediation measures.
-
-### Assessment Modules
-
-| Module | Description |
+| Category | Details |
 |---|---|
-| M1 | Reconnaissance and Information Gathering |
-| M2 | Vulnerability Assessment |
-| M3 | Critical Data Exposure |
-| M4 | Professional Reporting |
-
-### Tools and Technologies
-
-- Kali Linux
-- Nmap
-- WHOIS
-- DIG
-- cURL
-- ExifTool
-- PDFinfo
-- Firefox
-- Wireshark
-
-### Repository Structure
-
-```text
-MediRozah-Hospital-Web-Security-Assessment/
-│
-├── README.md
-│
-├── Reports/
-│   └── Final-Pentest-Report.md
-│
-├── Evidence/
-│   ├── M1-Reconnaissance/
-│   ├── M2-Vulnerability-Assessment/
-│   └── M3-Data-Exposure/
-│
-├── Screenshots/
-│
-└── Recommendations/
-    └── Remediation.md
-```
-
-### Key Learning Outcomes
-
-- Practical experience with Kali Linux.
-- Understanding of web application security.
-- Reconnaissance and information gathering.
-- Document metadata analysis.
-- Security risk assessment.
-- Professional cybersecurity documentation.
-
-### Author
-
-**Name:** Adigun Olamide Precious  
-**Training:** NETWORKWALKS  
-**Batch:** B084 (Batch 84)  
-**Field:** Cybersecurity
-
-**LinkedIn:** https://www.linkedin.com/in/olamide-adigun-8557853b/
+| Project | Hospital Web Application Security Assessment |
+| Target | medirozahospital.com |
+| Platform | Kali Linux |
+| Assessment Type | Web Application Security Assessment |
+| Researcher | Adigun Olamide Precious |
+| Training Organization | NETWORKWALKS |
+| Batch | B084 (Batch 84) |
+| Field | Cybersecurity |
+| Date | November 2026 |
+| Status | In Progress |
 
 ---
 
-*Learning, practising, documenting, and growing in cybersecurity — one project at a time.*
+## 1. Executive Summary
 
-### Disclaimer
+This project focuses on assessing the security of the MediRozah Hospital web application, identifying potential vulnerabilities, examining publicly accessible information, and evaluating the security of sensitive document handling.
 
-This repository is intended for educational and professional portfolio purposes. Security testing must be conducted only with appropriate authorization. No confidential patient information, credentials, or private organizational data should be published here.
+The assessment applies standard cybersecurity tools and methodologies within the scope of the authorized testing environment.
+
+The primary objective is to identify security weaknesses and provide recommendations to improve the confidentiality, integrity, and availability of the hospital's information systems.
+
+## 2. Scope and Methodology
+
+The assessment covers:
+
+- Publicly accessible website information.
+- Web server configuration.
+- DNS information.
+- Login page security observations.
+- PDF document properties and metadata.
+- Potential exposure of sensitive information.
+- Security recommendations.
+
+### Tools Used
+
+| Tool | Purpose |
+|---|---|
+| Kali Linux | Penetration testing environment |
+| Nmap | Network and service discovery |
+| WHOIS | Domain registration information |
+| DIG | DNS information gathering |
+| cURL | HTTP header inspection |
+| ExifTool | PDF metadata examination |
+| PDFinfo | PDF document properties |
+| Firefox/Chrome | Website inspection |
+| Wireshark | Network traffic analysis |
+
+## 3. Assessment Activities
+
+### M1 – Reconnaissance and Information Gathering
+
+Activities performed:
+
+- Identified the target domain.
+- Examined DNS records.
+- Retrieved MX records using DIG.
+- Inspected HTTP response headers using cURL.
+- Identified publicly accessible login pages.
+
+**Observed Result:**
+
+The staff login endpoint returned an HTTP 200 response during initial inspection.
+
+**Command Used:**
+
+```bash
+curl -I https://medirozahospital.com/staff/login.php
+```
+
+This confirmed that the endpoint responded to an HTTP request. It does not independently establish whether authentication is vulnerable.
+
+### M2 – Vulnerability Assessment
+
+This phase focuses on identifying potential weaknesses in the web application.
+
+Areas examined or planned for examination:
+
+- Authentication mechanisms.
+- Input validation.
+- SQL injection exposure.
+- Access control.
+- HTTP security headers.
+- Document access controls.
+
+All testing must remain within the explicitly authorized scope.
+
+### M3 – Critical Data Exposure
+
+This phase examines recovered documents and their metadata.
+
+Activities:
+
+- Identify authorized assessment documents.
+- Examine PDF document properties.
+- Inspect metadata using ExifTool.
+- Review document accessibility and protection.
+- Identify any documented exposure of sensitive information.
+
+**Data Protection Note:** Real patient and employee information must not be published in this report or uploaded to GitHub.
+
+### M4 – Professional Reporting
+
+The final report follows this structure:
+
+1. Executive Summary
+2. Scope and Methodology
+3. Findings and Proof of Exploitation
+4. Risk Rating
+5. Recommendations and Remediation
+
+## 4. Risk Rating
+
+| Severity | Description |
+|---|---|
+| Critical | Vulnerability could result in severe system compromise. |
+| High | Significant security weakness with serious consequences. |
+| Medium | Vulnerability with moderate security impact. |
+| Low | Limited security impact. |
+| Informational | Observation that does not establish a vulnerability. |
+
+No vulnerability should receive a severity rating without supporting evidence.
+
+## 5. Recommendations and Remediation
+
+Recommended security improvements include:
+
+- Implement strong authentication mechanisms.
+- Use parameterized SQL queries.
+- Enforce role-based access control.
+- Restrict access to sensitive PDF documents.
+- Configure appropriate HTTP security headers.
+- Encrypt sensitive information.
+- Monitor authentication attempts.
+- Conduct regular security assessments.
+
+## 6. Conclusion
+
+This assessment provides practical experience in web application security testing, reconnaissance, vulnerability assessment, document metadata analysis, and professional security reporting.
+
+The project demonstrates the importance of identifying security weaknesses before they can be exploited and protecting sensitive information from unauthorized access.
+
+**Project Status:** In Progress.
+
+---
+
+## Author Information
+
+**Researcher:** Adigun Olamide Precious  
+**Training Organization:** NETWORKWALKS  
+**Training Batch:** B084 (Batch 84)  
+**Field:** Cybersecurity  
+
+*Documenting my cybersecurity learning journey through practical security assessment, technical investigation, and professional reporting.*
